@@ -1,4 +1,12 @@
 module.exports = {
+  // Token full name
+  TOKEN_NAME: "USD//C",
+  // Token symbol
+  TOKEN_SYMBOL: "USDC",
+  // Token pegged currency
+  TOKEN_CURRENCY: "USD",
+  // Token decimals
+  TOKEN_DECIMALS: 6
   // BIP39 mnemonic phrase
   MNEMONIC: "",
   // INFURA API key
