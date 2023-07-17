@@ -19,7 +19,8 @@
     "solhint": "solhint 'contracts/**/*.sol'",
     "precommit": "yarn typechain && yarn fmt && yarn typecheck && yarn lint && yarn solhint",
     "slither": "slither --solc-disable-warnings --disable-color --exclude-dependencies .",
-    "migrate": "truffle migrate --interactive"
+    "migrate": "truffle migrate --interactive",
+    "deploy:v1": "truffle migrate --interactive -f 2 --to 2"
   },
   "repository": {
     "type": "git",
