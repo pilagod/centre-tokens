@@ -77,8 +77,16 @@ addresses of proxy admin, owner, master minter, blacklister, and pauser in
 `config.js`. This file must not be checked into the repository. To prevent
 accidental check-ins, `config.js` is in `.gitignore`.
 
-Run `yarn migrate --network NETWORK`, where NETWORK is either `mainnet` or
-`ropsten`.
+Also, please check the gas price of the latest transaction on your deploying chain, 
+and update gas price in `truffle-config.js` of that network.
+
+* To do v1 deployment, run `yarn deploy:v1 --network NETWORK`, where NETWORK is either `mainnet` or
+`goerli`.
+
+* To do full deployment, run `yarn migrate --network NETWORK`, where NETWORK is either `mainnet` or
+`goerli`.
+
+This script will first dry run the deployment in local forked network. After the dry run, it will prompt a dialog for you to confirm the deployment details. If everything is as expected, just hit y to proceed the real deployment.
 
 ## Contracts
 
