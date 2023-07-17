@@ -86,16 +86,18 @@ module.exports = async (deployer, network) => {
     THROWAWAY_ADDRESS,
     THROWAWAY_ADDRESS
   );
+  console.log("Initialized implementation contract");
 
   console.log("Deploying proxy contract...");
   await deployer.deploy(FiatTokenProxy, FiatTokenV1.address);
   const fiatTokenProxy = await FiatTokenProxy.deployed();
   console.log("Deployed proxy contract at", FiatTokenProxy.address);
 
-  console.log("Reassigning proxy contract admin...");
+  console.log(`Reassigning proxy contract admin to ${proxyAdminAddress}...`);
   // need to change admin first, or the call to initialize won't work
   // since admin can only call methods in the proxy, and not forwarded methods
   await fiatTokenProxy.changeAdmin(proxyAdminAddress);
+  console.log(`Reassigned proxy contract admin to ${proxyAdminAddress}`);
 
   console.log("Initializing proxy contract...");
   // Pretend that the proxy address is a FiatTokenV1 - this is fine because the
@@ -111,4 +113,5 @@ module.exports = async (deployer, network) => {
     blacklisterAddress,
     ownerAddress
   );
+  console.log("Initialized proxy contract");
 };
